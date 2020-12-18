@@ -148,5 +148,8 @@
       }
     }
   },
-  "defaultProject": "Projet-Jingwen"
+  "defaultProject": "Projet-Jingwen",
+  "cli": {
+    "analytics": "439244e6-1c98-490e-8b28-780f4490df92"
+  }
 }

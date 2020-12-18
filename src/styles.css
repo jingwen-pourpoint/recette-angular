@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+/* 
+body {
+    background: url("https://www.rueducarrelage.com/3427-large_default/plabor-gris-clair-75x75.jpg");
+} */
+
+.list-group-item.active{
+    background-color: #28a745 !important;
+    border-color: #28a745;
+}

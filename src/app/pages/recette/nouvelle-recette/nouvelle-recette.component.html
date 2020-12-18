@@ -1,0 +1,51 @@
+<p>nouvelle-recette works!</p>
+<form [formGroup]="nouvelleRecette" class="border border-secondary rounded container form">
+    <h3 class="display-5 font-weight-bold">Créer une nouvelle recette</h3>
+    <div class="row mb-3">
+        <label class="col-3">
+            Nom de la recette
+        </label>
+        <input type="text" formControlName="nom" class="col-8">
+    </div>
+    <div class="row mb-3">
+        <!-- <label class="col-3">
+            Niveau de difficulté
+        </label>
+        <input type="text" formControlName="difficulte" class="col-8"> -->
+        <label for="niveauDeDifficulte" class="col-3"> Niveau de difficulté </label>
+
+        <select name="difficulte" id="niveauDeDifficulte" formControlName="difficulte">
+            <option value="facile">Facile</option>
+            <option value="moyen">Moyen</option>
+            <option value="complique">Compliqué</option>
+        </select>
+    </div>
+
+
+    <div class="row mb-3">
+        <label class="col-3">
+            Image
+        </label>
+        <input type="file" formControlName="photo" class="col-8">
+    </div>
+
+    <div formArrayName="ingredients" class="mb-3" *ngFor="let ingredient of ingredients.controls, let i = index">
+        <div [formGroupName]="i" class="row mb-3">
+            <label class="col-2">Ingredient {{i+1}} </label>
+            <input type="text" formControlName="nom" class="col-4">
+            <label class="col-2">Quantité </label>
+            <input type="text" formControlName="quantite" class="col-3">
+        </div>
+    </div>
+
+    <div class="row">
+        <button class="btn btn-primary col-4 ml-3 mb-3" (click)="ajoutIngredient();$event.preventDefault()">
+            Ajouter un ingredient
+        </button>
+    </div>
+
+    <div class="row">
+        <button class="btn btn-success ml-3 mb-3 col-4" (click)="creationRecette()"
+            [disabled]="!nouvelleRecette.valid">Confirmer</button>
+    </div>
+</form>

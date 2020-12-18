@@ -1,0 +1,20 @@
+<p>shopping-list works!</p>
+<form  [formGroup]="ingredient" class="row col-10" (ngSubmit)="ajoute()">
+    <div class="col-3">
+        <label class="mr-3">Nom</label>
+        <input type="text" formControlName="nom">
+    </div>  
+    <div class="col-3">
+        <label class="mr-3">Quantité</label>
+        <input type="number" formControlName="quantite">
+    </div>
+    <button class="btn btn-success col-2" [disabled]="!ingredient.valid">Ajouter</button>
+</form>
+
+<hr class="col-12">
+<ul class="list-group ml-5 col-6">
+    <li class="list-group-item border row d-flex" *ngFor="let ingredient of ingredients; let i = index">
+        <p class="col-8">{{ingredient.nom}} {{ingredient.quantite}}</p>
+        <button (click)="supprime(i)" class="btn btn-danger col-2 offset-2">Supprimer</button>
+    </li>
+</ul>

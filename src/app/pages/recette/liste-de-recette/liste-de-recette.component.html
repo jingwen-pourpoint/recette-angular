@@ -1,0 +1,14 @@
+<p>Liste-de-recette works!</p>
+<button routerLink="nouvelle-recette" class="mb-3 btn btn-success font-weight-bold">Ajouter une nouvelle Recette</button>
+
+<div class="list border border-secondary rounded">
+    <div *ngFor="let recette of listeDeRecette" class="d-flex flex-row list-group-item"
+        [routerLink]="['detail-recette', recette.id]" routerLinkActive="active">
+        <!-- <div class="d-flex flex-column col-7 " (click)="detailRecette(recette.id)"> -->
+        <div class="d-flex flex-column col-7 ">
+            <p>Nom : {{recette.nom}}</p>
+            <p>Niveau de difficulté : {{recette.difficulte}}</p>
+        </div>
+        <img [src]="recette.photo || defaultImage" class=" img-responsive rounded img-thumbnail w-25 col-3 offset-2" [alt]="recette.nom">
+    </div>
+</div>

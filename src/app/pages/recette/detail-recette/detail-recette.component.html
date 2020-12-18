@@ -1,0 +1,27 @@
+<p>detail-recette works!</p>
+<div class="container border">
+    <div class="row">
+        <div class="d-flex flex-column col-5">
+            <p class="display-3 font-weight-bold"> {{recette.nom}}</p>
+            <p>Niveau de difficulté : {{recette.difficulte}}</p>
+        </div>
+        <div class="col-7">
+            <img [src]="recette.photo || defaultImage" class=" img-responsive rounded float-right w-50" alt="image">
+            <!-- src="{{recette.photo}}" -->
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="d-flex flex-column col-10"> 
+            <p>Liste d'ingrédients : </p>          
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let ingredient of recette.ingredients">{{ingredient.nom}} - {{ingredient.quantite}}</li>
+            </ul>
+            <button (click)="toShoppingList()" type="button" class="btn btn-warning mb-3 font-weight-bold">
+                Ajouter à la liste d'achat
+            </button>
+
+        </div>
+    </div>
+
+</div>
